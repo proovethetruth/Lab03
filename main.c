@@ -1,16 +1,22 @@
-
-// Написать функцию, которая переставляет элементы массива типа int так, что все четные значения предшествуют нечетным.
+п»ї
 #define _CRT_SECURE_NO_WARNINGS
 
 #include <stdio.h>
 #include <stdlib.h> // JUST FOR SYSTEM() FUNCTION
 
-void sorter(int *arr, int j) // j - размер массива
-{
-    int c, i = 0; // "c" - used to swap to elements, "i" - is just a counter
+// 2 8 5 6 4
 
-    while (i != j) 
+void sorter(int *arr, int j) 
+{
+    int c, i = 0;
+
+    while (i != j)
     {
+        for (int R = 0; R != 5; R++)
+        {
+            printf("%d ", arr[R]);
+        }
+        printf("\n");
 
         if (arr[i] % 2 != 0)
         {
@@ -20,10 +26,10 @@ void sorter(int *arr, int j) // j - размер массива
                 arr[i] = arr[j];
                 arr[j] = c;
 
-                if (i + 1 != j--)
-                {
+                if (i != j - 1)
                     i++, j--;
-                }
+                else
+                    break;
             }
             else
                 j--;
@@ -40,7 +46,7 @@ void sorter(int *arr, int j) // j - размер массива
 
 int main() {
 
-    int size = 0, err; // size of array and error counter for scanf(%*s)
+    int size = 0; // size of array
 
     printf("\n Enter array length: ");
     if (scanf("%d", &size) != 1 || size > 100 || size < 0)
@@ -49,6 +55,7 @@ int main() {
         return 0;
     }
 
+    size -= 1;
     int arr[100], j = 0; // j - iteration counter
 
     while (1)
@@ -60,17 +67,17 @@ int main() {
             return 0;
         }
 
-        if (j == 100 || j == size - 1)
+        if (j == 100 || j == size)
         {
             break;
         }
         j++;
     }
 
-    sorter(&arr, size - 1);
+    sorter(&arr, size);
 
     printf("\n Result: ");
-    for (int q = 0; q != size; q++)
+    for (int q = 0; q != size + 1; q++)
     {
         printf("%d ", arr[q]);
     }
