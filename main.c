@@ -49,7 +49,7 @@ int main() {
     int size = 0; // size of array
 
     printf("\n Enter array length: ");
-    if (scanf("%d", &size) != 1 || size > 100 || size < 0)
+    if (scanf("%d", &size) != 1 || size > 100 || size < 0 || size % 1 != 0)
     {
         printf("\n Input error, try again, using integer number.\n ");
         return 0;
@@ -58,20 +58,14 @@ int main() {
     size -= 1;
     int arr[100], j = 0; // j - iteration counter
 
-    while (1)
+    for (; j != size + 1; j++)
     {
         printf(" Enter array element number %d: ", j + 1);
-        if (scanf("%d", &arr[j]) != 1)
+        if (scanf("%d", &arr[j]) != 1 || arr[j] < 0 || arr[j] % 1 != 0)
         {
             printf("\n Input error, try again, using integer number.\n ");
             return 0;
         }
-
-        if (j == 100 || j == size)
-        {
-            break;
-        }
-        j++;
     }
 
     sorter(&arr, size);
