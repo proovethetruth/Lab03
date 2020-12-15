@@ -1,4 +1,4 @@
-﻿
+
 #define _CRT_SECURE_NO_WARNINGS
 
 #include <stdio.h>
@@ -40,9 +40,9 @@ int main() {
     int size = 0; // size of array
 
     printf("\n Enter array length: ");
-    if (scanf("%d", &size) != 1 || size > 100 || size < 0 || size % 1 != 0) // validation
+    if (scanf("%d", &size) != 1 || size > 100 || size <= 0 || size % 1 != 0) // validation
     {
-        printf("\n Input error, try again, using integer number.\n ");
+        printf("\n Input error, try again, using positive, integer number.\n ");
         return 0;
     }
 
@@ -66,5 +66,7 @@ int main() {
     {
         printf("%d ", arr[q]);
     }
+    printf("\n");
+
     return 0;
 }
